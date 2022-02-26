@@ -38,4 +38,14 @@ public class MainActivity extends AppCompatActivity {
         Intent si = new Intent(this, EmployeeActivity.class);
         startActivity(si);
     }
+
+    public void addNewCompany(View view) {
+        Intent si = new Intent(this, CompanyActivity.class);
+        startActivity(si);
+    }
+
+    public void doOrder(View view) {
+        Intent si = new Intent(this, OrderActivity.class);
+        startActivity(si);
+    }
 }

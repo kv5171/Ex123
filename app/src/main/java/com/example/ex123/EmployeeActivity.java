@@ -17,7 +17,6 @@ public class EmployeeActivity extends AppCompatActivity {
 
     SQLiteDatabase db;
     HelperDB hlp;
-    Cursor crsr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +54,7 @@ public class EmployeeActivity extends AppCompatActivity {
         else if(!goodId(idString)) { // not good id
             Toast.makeText(EmployeeActivity.this, "Wrong employee ID syntax", Toast.LENGTH_SHORT).show();
         }
-        else if(HelperFunc.checkInDB(phoneString, Employee.PHONE, hlp) || HelperFunc.checkInDB(idString, Employee.EMPLOYEE_ID, hlp))
+        else if(HelperFunc.checkInDB(Employee.TABLE_EMPLOYEE, phoneString, Employee.PHONE, hlp) || HelperFunc.checkInDB(Employee.TABLE_EMPLOYEE, idString, Employee.EMPLOYEE_ID, hlp))
         {
             Toast.makeText(EmployeeActivity.this, "Data is in the db already!", Toast.LENGTH_SHORT).show();
         }
@@ -71,6 +70,8 @@ public class EmployeeActivity extends AppCompatActivity {
             db = hlp.getWritableDatabase();
             db.insert(Employee.TABLE_EMPLOYEE, null, cv);
             db.close();
+
+            Toast.makeText(EmployeeActivity.this, "Add Employee completed", Toast.LENGTH_SHORT).show();
         }
     }
 

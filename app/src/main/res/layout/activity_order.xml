@@ -4,63 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+    tools:context=".OrderActivity">
 
     <Space
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="4" />
+        android:layout_weight="5" />
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="10"
+        android:layout_weight="67"
         android:orientation="vertical">
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2" />
+            android:layout_weight="10" />
 
-        <Button
+        <Spinner
+            android:id="@+id/workerID"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
-            android:onClick="addNewEmployee"
-            android:text="עובד חדש" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.5" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:onClick="addNewCompany"
-            android:text="הוספת חברה" />
+            android:layout_weight="10" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.5" />
+            android:layout_weight="5" />
 
-        <Button
+        <Spinner
+            android:id="@+id/companiesNames"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
-            android:onClick="doOrder"
-            android:text="הזמנה חדשה" />
+            android:layout_weight="10" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2" />
+            android:layout_weight="5" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="15"
+            android:onClick="makeOrder"
+            android:text="make order" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10" />
     </LinearLayout>
 
     <Space
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="4" />
+        android:layout_weight="5" />
+
 </LinearLayout>
