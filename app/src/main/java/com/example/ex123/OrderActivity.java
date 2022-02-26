@@ -56,7 +56,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
 
     private void getSpinnersData()
     {
-        SQLiteDatabase db=hlp.getReadableDatabase();
+        db=hlp.getReadableDatabase();
         crsr = db.query(Employee.TABLE_EMPLOYEE, new String[]{Employee.EMPLOYEE_ID}, null, null, null, null, Employee.EMPLOYEE_ID + " DESC", null);
 
         int col1 = crsr.getColumnIndex(Employee.EMPLOYEE_ID);
