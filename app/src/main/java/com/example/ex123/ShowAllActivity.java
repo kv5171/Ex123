@@ -50,9 +50,9 @@ public class ShowAllActivity extends AppCompatActivity implements AdapterView.On
         ordersArray = new ArrayList<>();
 
         getEmployees();
-//        getCompanies();
-//        getMeals();
-//        getOrders();
+        getCompanies();
+        getMeals();
+        getOrders();
     }
 
     private void getEmployees()
@@ -76,21 +76,84 @@ public class ShowAllActivity extends AppCompatActivity implements AdapterView.On
         crsr.close();
     }
 
+    private void getCompanies()
+    {
+        db=hlp.getReadableDatabase();
+        crsr = db.query(Company.TABLE_COMPANY, null, null, null, null, null, null, null);
+
+        int col1 = crsr.getColumnIndex(Company.COMPANY_NUMBER);
+        int col2 = crsr.getColumnIndex(Company.NAME);
+        int col3 = crsr.getColumnIndex(Company.FIRST_PHONE);
+        int col4 = crsr.getColumnIndex(Company.SECOND_PHONE);
+
+        crsr.moveToFirst();
+        companiesArray.add("id | name | phone1 | phone2");
+        while (!crsr.isAfterLast()) {
+            companiesArray.add(crsr.getString(col1) + " | " + crsr.getString(col2) + " | " + crsr.getString(col3) + " | " + crsr.getString(col4));
+            crsr.moveToNext();
+        }
+        crsr.close();
+    }
+
+    private void getMeals()
+    {
+        db=hlp.getReadableDatabase();
+        crsr = db.query(Meal.TABLE_MEAL, null, null, null, null, null, null, null);
+
+        int col1 = crsr.getColumnIndex(Meal.MEAL_ID);
+        int col2 = crsr.getColumnIndex(Meal.FIRST_MEAL);
+        int col3 = crsr.getColumnIndex(Meal.MAIN_MEAL);
+        int col4 = crsr.getColumnIndex(Meal.EXTRA);
+        int col5 = crsr.getColumnIndex(Meal.DESSERT);
+        int col6 = crsr.getColumnIndex(Meal.DRINK);
+
+        crsr.moveToFirst();
+        mealsArray.add("id | meal1 | meal2 | extra | dessert | drink");
+        while (!crsr.isAfterLast()) {
+            mealsArray.add(crsr.getString(col1) + " | " + crsr.getString(col2) + " | " + crsr.getString(col3) + " | " + crsr.getString(col4) + " | " + crsr.getString(col5) + " | " + crsr.getString(col6));
+            crsr.moveToNext();
+        }
+        crsr.close();
+    }
+
+    private void getOrders()
+    {
+        db=hlp.getReadableDatabase();
+        crsr = db.query(Order.TABLE_ORDER, null, null, null, null, null, null, null);
+
+        int col1 = crsr.getColumnIndex(Order.ORDER_DATE);
+        int col2 = crsr.getColumnIndex(Order.ORDER_TIME);
+        int col3 = crsr.getColumnIndex(Order.WORKER_ID);
+        int col4 = crsr.getColumnIndex(Order.MEAL_ID);
+        int col5 = crsr.getColumnIndex(Order.COMPANY);
+
+        crsr.moveToFirst();
+        ordersArray.add("date | time | worker | mealId | company");
+        while (!crsr.isAfterLast()) {
+            ordersArray.add(crsr.getString(col1) + " | " + crsr.getString(col2) + " | " + crsr.getString(col3) + " | " + crsr.getString(col4) + " | " + crsr.getString(col5));
+            crsr.moveToNext();
+        }
+        crsr.close();
+    }
+
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
         switch (pos)
         {
             case 0:
                 adp = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, employeesArray);
-                lv.setAdapter(adp);
                 break;
             case 1:
+                adp = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, companiesArray);
                 break;
             case 2:
+                adp = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, mealsArray);
                 break;
             case 3:
+                adp = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, ordersArray);
                 break;
         }
+        lv.setAdapter(adp);
     }
 
     @Override
