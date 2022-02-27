@@ -1,10 +1,14 @@
 package com.example.ex123;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,18 +17,21 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 
+/**
+ * @author Keren Weintraub <kv5171@bs.amalnet.k12.il>
+ * @version	1
+ * @since  17/02/2022
+ * The type Show all activity.
+ */
 public class ShowAllActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Spinner options;
     ListView lv;
-
     ArrayAdapter<String> adp;
-
     SQLiteDatabase db;
     HelperDB hlp;
     Cursor crsr;
 
     String [] allOptions = {"employees", "companies", "meals", "orders"};
-
     ArrayList<String> employeesArray, companiesArray, mealsArray, ordersArray;
 
 
@@ -158,5 +165,57 @@ public class ShowAllActivity extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+    }
+
+
+    /**
+     * Create the options menu
+     *
+     * @param menu the menu
+     * @return true if success
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    /**
+     * Go where clicked
+     *
+     * @param item the item in menu that was clicked
+     *  @return true if success
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.home)
+        {
+            Intent si = new Intent(this, MainActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.company)
+        {
+            Intent si = new Intent(this, CompanyActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.employee)
+        {
+            Intent si = new Intent(this, EmployeeActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.order)
+        {
+            Intent si = new Intent(this, OrderActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.credits)
+        {
+            Intent si = new Intent(this, CreditsActivity.class);
+            startActivity(si);
+        }
+
+        return true;
     }
 }

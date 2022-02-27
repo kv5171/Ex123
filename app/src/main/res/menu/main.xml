@@ -3,10 +3,32 @@
 
     <item
         android:title="Credits"
+        android:id="@+id/credits"
         android:orderInCategory="100" />
 
     <item
         android:orderInCategory="200"
+        android:id="@+id/home"
         android:title="Home" />
+
+    <item
+        android:orderInCategory="300"
+        android:id="@+id/company"
+        android:title="Add Company" />
+
+    <item
+        android:orderInCategory="400"
+        android:id="@+id/employee"
+        android:title="Add Employee" />
+
+    <item
+        android:orderInCategory="500"
+        android:id="@+id/order"
+        android:title="Add Order" />
+
+    <item
+        android:orderInCategory="700"
+        android:id="@+id/show"
+        android:title="Show data " />
 
 </menu>

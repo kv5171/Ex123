@@ -1,14 +1,18 @@
 package com.example.ex123;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,18 +27,22 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.TimeZone;
 
+/**
+ * @author Keren Weintraub <kv5171@bs.amalnet.k12.il>
+ * @version	1
+ * @since  17/02/2022
+ * The type Order activity.
+ */
 public class OrderActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Spinner workerID, companiesNames;
     SQLiteDatabase db;
     HelperDB hlp;
     Cursor crsr;
     AlertDialog.Builder adb;
-
     String companyID, workerId;
 
     ArrayList<String> workersID = new ArrayList<>();
     ArrayAdapter<String> idsAdp;
-
     HashMap<String, Integer> companies = new HashMap<>();
     ArrayAdapter<String> companiesAdp;
 
@@ -90,6 +98,11 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         companiesNames.setAdapter(companiesAdp);
     }
 
+    /**
+     * Make order.
+     *
+     * @param view the view
+     */
     public void makeOrder(View view) {
         /*
             what we need to do:
@@ -226,4 +239,57 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
+
+
+    /**
+     * Create the options menu
+     *
+     * @param menu the menu
+     * @return true if success
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    /**
+     * Go where clicked
+     *
+     * @param item the item in menu that was clicked
+     *  @return true if success
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.home)
+        {
+            Intent si = new Intent(this, MainActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.company)
+        {
+            Intent si = new Intent(this, CompanyActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.employee)
+        {
+            Intent si = new Intent(this, EmployeeActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.credits)
+        {
+            Intent si = new Intent(this, CreditsActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.show)
+        {
+            Intent si = new Intent(this, ShowAllActivity.class);
+            startActivity(si);
+        }
+
+        return true;
+    }
+
 }

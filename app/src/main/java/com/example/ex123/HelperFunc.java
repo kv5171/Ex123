@@ -3,7 +3,22 @@ package com.example.ex123;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+/**
+ * @author Keren Weintraub <kv5171@bs.amalnet.k12.il>
+ * @version	1
+ * @since  17/02/2022
+ * The type Helper func.
+ */
 public class HelperFunc {
+    /**
+     * Check in db boolean.
+     *
+     * @param databaseName the database name
+     * @param param        the param
+     * @param paramType    the param type
+     * @param hlp          the hlp
+     * @return the boolean
+     */
     public static boolean checkInDB(String databaseName, String param, String paramType, HelperDB hlp)
     {
         int crsrLen = 0;

@@ -30,11 +30,22 @@ import static com.example.ex123.Order.TABLE_ORDER;
 import static com.example.ex123.Order.ORDER_TIME;
 import static com.example.ex123.Order.WORKER_ID;
 
+/**
+ * @author Keren Weintraub <kv5171@bs.amalnet.k12.il>
+ * @version	1
+ * @since  17/02/2022
+ * The type Helper db.
+ */
 public class HelperDB extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "GYN.db";
     private static final int DATABASE_VERSION = 5;
     String strCreate, strDelete;
 
+    /**
+     * Instantiates a new Helper db.
+     *
+     * @param context the context
+     */
     public HelperDB(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -79,6 +90,13 @@ public class HelperDB extends SQLiteOpenHelper {
         db.execSQL(strCreate);
     }
 
+    /**
+     * Called when the database needs to be upgraded.
+     *
+     * @param db The database.
+     * @param oldVersion The old database version.
+     * @param newVersion The new database version.
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         strDelete="DROP TABLE IF EXISTS "+TABLE_EMPLOYEE;
