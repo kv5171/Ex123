@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ex123">
-        <activity android:name=".CreditsActivity"></activity>
+        <activity android:name=".ChangePhoneActivity"></activity>
+        <activity android:name=".SortActivity" />
+        <activity android:name=".CreditsActivity" />
         <activity android:name=".ShowAllActivity" />
         <activity android:name=".OrderActivity" />
         <activity android:name=".CompanyActivity" />

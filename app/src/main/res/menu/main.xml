@@ -31,4 +31,14 @@
         android:id="@+id/show"
         android:title="Show data " />
 
+    <item
+        android:orderInCategory="800"
+        android:id="@+id/sort"
+        android:title="Sort and Order " />
+
+    <item
+        android:orderInCategory="900"
+        android:id="@+id/change"
+        android:title="Change Phone " />
+
 </menu>

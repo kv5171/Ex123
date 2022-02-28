@@ -104,17 +104,6 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
      * @param view the view
      */
     public void makeOrder(View view) {
-        /*
-            what we need to do:
-
-        * after button click:
-        *   check spinners not null (not in first element)
-        *   open alert dialog of get meal
-        *
-        *   then, get now's date & time
-        *   push to database!!!!
-        * */
-
         // if there are no workers or companies in db
         if ((companyID == null) || (workerId == null))
         {

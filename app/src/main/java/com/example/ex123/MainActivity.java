@@ -77,6 +77,16 @@ public class MainActivity extends AppCompatActivity {
             Intent si = new Intent(this, ShowAllActivity.class);
             startActivity(si);
         }
+        else if (id == R.id.sort)
+        {
+            Intent si = new Intent(this, SortActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.change)
+        {
+            Intent si = new Intent(this, ChangePhoneActivity.class);
+            startActivity(si);
+        }
 
         return true;
     }
