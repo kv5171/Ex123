@@ -14,7 +14,7 @@ public class HelperFunc {
      * Check in db boolean.
      *
      * @param databaseName the database name
-     * @param param        the param
+     * @param param        the param to chack in db
      * @param paramType    the param type
      * @param hlp          the hlp
      * @return the boolean

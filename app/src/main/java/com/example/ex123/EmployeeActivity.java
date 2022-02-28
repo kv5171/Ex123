@@ -91,6 +91,9 @@ public class EmployeeActivity extends AppCompatActivity {
 
     /**
      * Check if the ID is correct
+     *
+     * @param id the String employee id
+     * @return true if id is correct, else false
      */
     private boolean goodId(String id)
     {
