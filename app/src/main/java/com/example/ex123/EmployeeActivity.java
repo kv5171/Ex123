@@ -60,7 +60,6 @@ public class EmployeeActivity extends AppCompatActivity {
         String idString = id.getText().toString();
         String phoneString = phone.getText().toString();
 
-
         // all parameters != null ""
         if (lastNameString.equals("") || firstNameString.equals("") || companyString.equals("") || idString.equals("") || phoneString.equals(""))
         {
@@ -90,9 +89,32 @@ public class EmployeeActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Check if the ID is correct
+     */
     private boolean goodId(String id)
     {
-        return true;
+        int sumIdNumbers = 0;
+        int currDigit = 0;
+
+        if (id.equals("") || (id.length() > 9))
+            return false;
+        else{
+            char[] tzNumbers = (String.format("%09d", Integer.parseInt(id))).toCharArray();
+
+            for (int i = 0; i < 9; i++)
+            {
+                currDigit = Character.getNumericValue(tzNumbers[i]);
+                currDigit *= (i % 2) + 1;
+
+                if (currDigit > 9)
+                    currDigit -= 9;
+
+                sumIdNumbers += currDigit;
+            }
+
+            return (sumIdNumbers % 10 == 0);
+        }
     }
 
 
