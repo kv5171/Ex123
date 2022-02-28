@@ -49,7 +49,7 @@ public class EmployeeActivity extends AppCompatActivity {
     }
 
     /**
-     * Add employee.
+     * Add employee to db.
      *
      * @param view the view
      */

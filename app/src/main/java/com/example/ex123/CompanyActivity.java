@@ -44,7 +44,7 @@ public class CompanyActivity extends AppCompatActivity {
     }
 
     /**
-     * Add company.
+     * Add company to db.
      *
      * @param view the view
      */

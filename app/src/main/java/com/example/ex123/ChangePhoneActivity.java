@@ -20,6 +20,12 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ * @author Keren Weintraub <kv5171@bs.amalnet.k12.il>
+ * @version	1
+ * @since  17/02/2022
+ * The type Change phone activity.
+ */
 public class ChangePhoneActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     EditText phone;
     Spinner options;
@@ -30,7 +36,6 @@ public class ChangePhoneActivity extends AppCompatActivity implements AdapterVie
     Cursor crsr;
 
     String employeeId, currPhone;
-
     ArrayList<String> idsArray;
 
     @Override
@@ -55,6 +60,9 @@ public class ChangePhoneActivity extends AppCompatActivity implements AdapterVie
         phone.setTransformationMethod(null);
     }
 
+    /**
+     * get all employees id from db
+     */
     private void getIds()
     {
         db=hlp.getReadableDatabase();
@@ -71,6 +79,11 @@ public class ChangePhoneActivity extends AppCompatActivity implements AdapterVie
         crsr.close();
     }
 
+    /**
+     * Apply the phone in db
+     *
+     * @param view the view
+     */
     public void apply(View view) {
         String phoneString = phone.getText().toString();
 
@@ -114,6 +127,9 @@ public class ChangePhoneActivity extends AppCompatActivity implements AdapterVie
 
     }
 
+    /**
+     * get the phone by employee id
+     */
     private void getPhoneById()
     {
         db=hlp.getReadableDatabase();

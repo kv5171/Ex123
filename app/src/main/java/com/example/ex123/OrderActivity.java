@@ -99,7 +99,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     }
 
     /**
-     * Make order.
+     * Make order
      *
      * @param view the view
      */
@@ -171,6 +171,9 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         }
     }
 
+    /**
+     *  add order to the db
+     */
     private void addOrderToDB(String firstMeal, String mainMeal, String extra, String dessert, String drink)
     {
         // insert meal to db

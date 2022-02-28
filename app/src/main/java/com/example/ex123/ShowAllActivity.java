@@ -62,6 +62,9 @@ public class ShowAllActivity extends AppCompatActivity implements AdapterView.On
         getOrders();
     }
 
+    /**
+     * get all employees from db
+     */
     private void getEmployees()
     {
         db=hlp.getReadableDatabase();
@@ -83,6 +86,9 @@ public class ShowAllActivity extends AppCompatActivity implements AdapterView.On
         crsr.close();
     }
 
+    /**
+     * get all companies from db
+     */
     private void getCompanies()
     {
         db=hlp.getReadableDatabase();
@@ -102,6 +108,9 @@ public class ShowAllActivity extends AppCompatActivity implements AdapterView.On
         crsr.close();
     }
 
+    /**
+     * get all meals from database
+     */
     private void getMeals()
     {
         db=hlp.getReadableDatabase();
@@ -123,6 +132,9 @@ public class ShowAllActivity extends AppCompatActivity implements AdapterView.On
         crsr.close();
     }
 
+    /**
+     * get all orders from database
+     */
     private void getOrders()
     {
         db=hlp.getReadableDatabase();

@@ -17,6 +17,12 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 
+/**
+ * @author Keren Weintraub <kv5171@bs.amalnet.k12.il>
+ * @version	1
+ * @since  17/02/2022
+ * The type Sort activity.
+ */
 public class SortActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     ListView lv;
     Spinner options;
@@ -54,6 +60,9 @@ public class SortActivity extends AppCompatActivity implements AdapterView.OnIte
         getOrderedEmployees();
     }
 
+    /**
+     *  get all id employees from the db
+     */
     private void getIds()
     {
         db=hlp.getReadableDatabase();
@@ -70,6 +79,9 @@ public class SortActivity extends AppCompatActivity implements AdapterView.OnIte
         crsr.close();
     }
 
+    /**
+     *  get all names employees from db
+     */
     private void getNames()
     {
         db=hlp.getReadableDatabase();
@@ -87,6 +99,9 @@ public class SortActivity extends AppCompatActivity implements AdapterView.OnIte
         crsr.close();
     }
 
+    /**
+     *  get all the id employees from the db sorted
+     */
     private void getOrderedEmployees()
     {
         db=hlp.getReadableDatabase();
@@ -128,7 +143,6 @@ public class SortActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
-
 
     /**
      * Create the options menu
