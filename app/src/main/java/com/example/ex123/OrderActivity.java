@@ -252,9 +252,9 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.home)
+        if (id == R.id.credits)
         {
-            Intent si = new Intent(this, MainActivity.class);
+            Intent si = new Intent(this, CreditsActivity.class);
             startActivity(si);
         }
         else if (id == R.id.company)
@@ -267,14 +267,24 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
             Intent si = new Intent(this, EmployeeActivity.class);
             startActivity(si);
         }
-        else if (id == R.id.credits)
+        else if (id == R.id.home)
         {
-            Intent si = new Intent(this, CreditsActivity.class);
+            Intent si = new Intent(this, MainActivity.class);
             startActivity(si);
         }
         else if (id == R.id.show)
         {
             Intent si = new Intent(this, ShowAllActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.sort)
+        {
+            Intent si = new Intent(this, SortActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.change)
+        {
+            Intent si = new Intent(this, ChangePhoneActivity.class);
             startActivity(si);
         }
 

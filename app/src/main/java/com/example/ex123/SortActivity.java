@@ -182,8 +182,12 @@ public class SortActivity extends AppCompatActivity implements AdapterView.OnIte
             Intent si = new Intent(this, MainActivity.class);
             startActivity(si);
         }
+        else if (id == R.id.change)
+        {
+            Intent si = new Intent(this, ChangePhoneActivity.class);
+            startActivity(si);
+        }
 
         return true;
     }
-
 }

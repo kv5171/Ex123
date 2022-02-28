@@ -102,14 +102,14 @@ public class CompanyActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.home)
-        {
-            Intent si = new Intent(this, MainActivity.class);
-            startActivity(si);
-        }
-        else if (id == R.id.credits)
+        if (id == R.id.credits)
         {
             Intent si = new Intent(this, CreditsActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.home)
+        {
+            Intent si = new Intent(this, MainActivity.class);
             startActivity(si);
         }
         else if (id == R.id.employee)
@@ -125,6 +125,16 @@ public class CompanyActivity extends AppCompatActivity {
         else if (id == R.id.show)
         {
             Intent si = new Intent(this, ShowAllActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.sort)
+        {
+            Intent si = new Intent(this, SortActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.change)
+        {
+            Intent si = new Intent(this, ChangePhoneActivity.class);
             startActivity(si);
         }
 
