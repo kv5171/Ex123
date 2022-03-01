@@ -14,7 +14,7 @@ public class HelperFunc {
      * Check if the parameter is already in the db
      *
      * @param databaseName the database name
-     * @param param        the param to chack in db
+     * @param param        the param to check in db
      * @param paramType    the param type
      * @param hlp          the helper to db
      * @return the boolean
