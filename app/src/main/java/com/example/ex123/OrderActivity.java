@@ -1,4 +1,4 @@
-package com.example.ex123;
+ package com.example.ex123;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -27,24 +27,25 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.TimeZone;
 
-/**
- * @author Keren Weintraub <kv5171@bs.amalnet.k12.il>
- * @version	1
- * @since  17/02/2022
- * The type Order activity.
- */
-public class OrderActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+ /**
+  * The type Order activity.
+  *
+  * @author Keren Weintraub <kv5171@bs.amalnet.k12.il>
+  * @version 1
+  * @since 17 /02/2022 The type Order activity.
+  */
+ public class OrderActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Spinner workerID, companiesNames;
-    SQLiteDatabase db;
-    HelperDB hlp;
-    Cursor crsr;
-    AlertDialog.Builder adb;
-    String companyID, workerId;
+     SQLiteDatabase db;
+     HelperDB hlp;
+     Cursor crsr;
 
-    ArrayList<String> workersID = new ArrayList<>();
-    ArrayAdapter<String> idsAdp;
-    HashMap<String, Integer> companies = new HashMap<>();
-    ArrayAdapter<String> companiesAdp;
+     AlertDialog.Builder adb;
+     String companyID, workerId;
+     ArrayList<String> workersID = new ArrayList<>();
+     ArrayAdapter<String> idsAdp;
+     HashMap<String, Integer> companies = new HashMap<>();
+     ArrayAdapter<String> companiesAdp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,9 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         getSpinnersData();
     }
 
+    /**
+        get all the employees id and company
+    */
     private void getSpinnersData()
     {
         db=hlp.getReadableDatabase();
@@ -98,12 +102,12 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         companiesNames.setAdapter(companiesAdp);
     }
 
-    /**
-     * Make order
-     *
-     * @param view the view
-     */
-    public void makeOrder(View view) {
+     /**
+      * Make order
+      *
+      * @param view the view
+      */
+     public void makeOrder(View view) {
         // if there are no workers or companies in db
         if ((companyID == null) || (workerId == null))
         {
@@ -171,10 +175,17 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         }
     }
 
-    /**
-     *  add order to the db
-     */
-    private void addOrderToDB(String firstMeal, String mainMeal, String extra, String dessert, String drink)
+
+     /**
+      * Add order to db.
+      *
+      * @param firstMeal the first meal
+      * @param mainMeal  the main meal
+      * @param extra     the extra
+      * @param dessert   the dessert
+      * @param drink     the drink
+      */
+     private void addOrderToDB(String firstMeal, String mainMeal, String extra, String dessert, String drink)
     {
         // insert meal to db
         ContentValues cv = new ContentValues();

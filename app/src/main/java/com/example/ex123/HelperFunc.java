@@ -11,12 +11,12 @@ import android.database.sqlite.SQLiteDatabase;
  */
 public class HelperFunc {
     /**
-     * Check in db boolean.
+     * Check if the parameter is already in the db
      *
      * @param databaseName the database name
      * @param param        the param to chack in db
      * @param paramType    the param type
-     * @param hlp          the hlp
+     * @param hlp          the helper to db
      * @return the boolean
      */
     public static boolean checkInDB(String databaseName, String param, String paramType, HelperDB hlp)
